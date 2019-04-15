@@ -1,4 +1,5 @@
-﻿using odeToFood.UI.DataContext;
+﻿using odeToFood.DL.ViewModels;
+using odeToFood.UI.DataContext;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,8 +19,15 @@ namespace odeToFood.UI.Controllers
 
         public ActionResult Index()
         {
-            var model = _db.Restaurants.Take(10)
-                                        .ToList();
+            var model = _db.Restaurants.Select(x => new RestaurantReviewsViewModel
+            {
+               RestaurantName = x.Name,
+               City  = x.City,
+               Country = x.Country,
+               Rating = x.Reviews.Max( y => y.Rating),
+               RateDescription  = x.Reviews.Select(y => y.Description).FirstOrDefault()
+            }).OrderByDescending(x => x.Rating)
+            .Where(x => x.Rating > 8).ToList();
     
 
             return View(model);

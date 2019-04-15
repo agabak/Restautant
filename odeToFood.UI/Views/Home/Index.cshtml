@@ -1,4 +1,4 @@
-﻿@model  IEnumerable<odeToFood.DL.Models.Restaurant>
+﻿@model  IEnumerable<odeToFood.DL.ViewModels.RestaurantReviewsViewModel>
 @{
     ViewBag.Title = "Home Page";
 }
@@ -7,14 +7,6 @@
 <div class="container">
      @foreach (var restaurant in Model)
      {
-         <div>
-             <h2>@restaurant.Name</h2> 
-             <span>@restaurant.City</span> , <span>@restaurant.Country</span> 
-             @foreach (var review in restaurant.Reviews)
-             {
-                 <span>@review.Rating</span>
-                 <label>@review.Description</label>
-             }
-         </div>
+              Html.RenderPartial("Restaurantdetail", restaurant); 
      }
-</div>
+  </div>
