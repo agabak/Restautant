@@ -7,4 +7,3 @@ c:\dev\website\mvc\odetofood\odeToFood\odeToFood.DL\bin\Debug\EntityFramework.xm
 c:\dev\website\mvc\odetofood\odeToFood\odeToFood.DL\bin\Debug\EntityFramework.SqlServer.xml
 c:\dev\website\mvc\odetofood\odeToFood\odeToFood.DL\obj\Debug\odeToFood.DL.dll
 c:\dev\website\mvc\odetofood\odeToFood\odeToFood.DL\obj\Debug\odeToFood.DL.pdb
-C:\dev\website\mvc\odetofood\OdeToFood\odeToFood.DL\obj\Debug\odeToFood.DL.csprojResolveAssemblyReference.cache

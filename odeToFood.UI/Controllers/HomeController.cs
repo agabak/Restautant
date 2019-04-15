@@ -1,4 +1,5 @@
-﻿using System;
+﻿using odeToFood.UI.DataContext;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,13 +7,22 @@ using System.Web.Mvc;
 
 namespace odeToFood.UI.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : Controller, IDisposable
     {
+        private readonly RestaurantDbContext _db;
+
+        public HomeController()
+        {
+            _db = new RestaurantDbContext();
+        }
+
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+            var model = _db.Restaurants.Take(10)
+                                        .ToList();
+    
 
-            return View();
+            return View(model);
         }
 
         public ActionResult About()
@@ -27,6 +37,12 @@ namespace odeToFood.UI.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _db.Dispose();
+            base.Dispose(disposing);
         }
     }
 }

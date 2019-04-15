@@ -119,6 +119,19 @@
   <ItemGroup>
     <Content Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\odeToFood.DL\odeToFood.DL.csproj">
+      <Project>{1af49512-c21a-445d-ad61-a53eefb50713}</Project>
+      <Name>odeToFood.DL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\odeToFood.UI\odeToFood.UI.csproj">
+      <Project>{B577AB90-4EF3-49EA-9DEB-5C511CD50E23}</Project>
+      <Name>odeToFood.UI</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
